@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1e6f9fe1ef.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #faf8f5;
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            margin-top: 200px;
+        }
+        p{
+            font-size: 40px;
+        }
+
+        header {
+            margin-left: 75%;
+            font-size: 15px;
+            margin-top: 50px;
+            display: inline;
+        }
+
+        a {
+     
+            text-decoration: none;
+            color: rgb(17, 17, 17);
+            background-color: rgba(255, 255, 255, 0.733);
+            border-radius: 20px;
+            padding: 10px 20px;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        main {
+            margin-top: 200px;
+            margin-left: 30%;
+            margin-right: 30%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p> Error, try again... </p>
+    {{text}}
+<br><br><br><br>
+    <a href="{{url_for('log_in')}}">LOG IN</a>
+    <a href="{{url_for('register')}}">REGISTER</a>
+    <a href="{{url_for('index')}}">Home</a>
+
+
+</body>
+
+</html>

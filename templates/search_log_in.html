@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping on Ebay</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1e6f9fe1ef.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #faf8f5;
+            font-family: 'Raleway', sans-serif;
+            font-size: 50px;
+       
+        }
+
+main{
+    margin-top: 200px;
+            margin-left: 30%;
+            margin-right: 30%;
+            text-align: center;
+}
+        p {
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 75%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <form action="{{url_for('save_search')}}" method="post">
+            <div class="title">
+                <p>Search on EBAY</p>
+            </div>
+            <div class="browser">
+                <input type="text" name="search" id="search" class="form-control" placeholder="Your search..." required>
+                <button class="btn btn-outline-primary" type="submit">SEARCH</button>
+            </div>
+        </form>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1e6f9fe1ef.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #faf8f5;
+            font-family: 'Raleway', sans-serif;
+            margin-top: 50px;
+
+
+        }
+
+        p {
+            font-size: 50px;
+        }
+
+        main {
+            margin-top: 150px;
+            margin-left: 30%;
+            margin-right: 30%;
+            text-align: center;
+        }
+
+        input {
+            width: 75%;
+        }
+
+        form {
+            font-size: 30px;
+        }
+
+        .head {
+
+            background-color: rgba(255, 255, 255, 0.733);
+            border-radius: 20px;
+            padding: 10px 20px;
+            border-style: solid;
+            border-width: 1px;
+
+        }
+
+        header {
+            margin-left: 75%;
+            font-size: 15px;
+            display: inline;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(17, 17, 17);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="{{url_for('register')}}" class="head">REGISTER</a>
+        <a href="{{url_for('index')}}" class="head">Home</a>
+    </header>
+
+    <main>
+        <h3>{{ text }}
+        </h3>
+        <p>Enter your data</p>
+
+        <form action="/log_in" method="post" class="form">
+
+            <label for="name">User name</label><br>
+            <input type="text" id="name" name="name" value="Your user name.."><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" value="Your Password.."><br>
+            <input type="submit" value="Send">
+
+        </form>
+    </main>
+</body>
+
+</html>

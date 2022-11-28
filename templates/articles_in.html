@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1e6f9fe1ef.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --white: #faf8f5;
+            --black: #000000;
+            --very-light-pink: #8b8b8b;
+            --text-input-field: #e9e7e7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+
+        }
+
+        body {
+            background-color: #faf8f5;
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+
+        }
+
+        .articles {
+            margin-top: 50px;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+
+        }
+
+        .title {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .articles-container {
+
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 800px;
+        }
+
+        .articles-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .art {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: center;
+            background-color: var(--text-input-field);
+            margin-bottom: 50px;
+            border-radius: 8px;
+            padding: 0 24px;
+            margin-bottom: 60px;
+        }
+
+        .order p:nth-child(1) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .art p span:nth-child(1) {
+            font-size: var(--md);
+            font-weight: bold;
+        }
+
+        .art p span:nth-child(2) {
+            font-size: var(--sm);
+            color: var(--very-light-pink);
+        }
+
+        .art p:nth-child(2) {
+            text-align: end;
+            font-weight: bold;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 10px 10px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #8b8b8b;
+
+        }
+
+        .products figure {
+            margin: 0;
+        }
+
+        .products figure img {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .products p:nth-child(2) {
+            color: #000000;
+        }
+
+        .products p:nth-child(3) {
+            font-size: var(--md);
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+
+        }
+
+        .back {
+            text-decoration: none;
+            color: rgb(17, 17, 17);
+            background-color: rgba(255, 255, 255, 0.733);
+            border-radius: 20px;
+            padding: 10px 20px;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        header {
+            margin-left: 80%;
+            font-size: 20px;
+            margin-top: 50px;
+
+        }
+        .browser{
+            margin-top: 1.0px;
+            margin-left: 30%;
+            margin-right: 30%;
+            text-align: center;
+        }
+        .form-control{
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+        <a class="back" href="{{url_for('index_in')}}">Home</a>
+        <a class="back" href="{{url_for('index')}}">LOG OUT</a>
+    </header>
+    <main>
+        <div class="articles">
+            <div class="articles-container">
+                <h1 class="title">Search Results</h1>
+                {% if products == [] %}
+                <div class="art">
+                    <p>
+                        No results for your search. Try again!
+                    </p>
+                </div>
+                
+        <form action="{{url_for('save_search_in')}}" method="post">
+            <div class="browser">
+                <input type="text" name="search" id="search" class="form-control" placeholder="Your search..." required>
+                <button class="btn btn-outline-primary" type="submit">SEARCH</button>
+            </div>
+        </form>
+                {% else %}
+                <div class="articles-content">
+                    <div class="art">
+                        <p>
+                            Here is a list of products offered on Ebay by reliable sellers and ordered by price!
+                        </p>
+
+                    </div>
+
+
+                   
+                    {% for product in products %}
+
+                    <div class="products">
+                        <figure>
+                            <img src={{product[3]}} alt="">
+                        </figure>
+                        <a name="tracking" id="tracking" href="{{product[4]}}" target="_blank">{{product[0]}}
+                        </a>
+                        <h4>{{product[1]}} {{product[2]}}</h2>
+             
+
+                            <div class="tracking">
+                                <form action="/tracking" method="post">
+                                    <input type="checkbox" id="product_track" name="product_track" value="{{product}}">
+                                    <label for="product_track">Tracking</label><br>
+                                    <input type="submit" value="Submit">
+                                </form> 
+                            </div>
+
+
+                    </div>
+                    
+                </form> 
+                
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+
+</body>
+
+</html>
